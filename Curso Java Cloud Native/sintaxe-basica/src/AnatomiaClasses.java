@@ -1,4 +1,4 @@
-public class MinhaClasse {
+public class AnatomiaClasses {
     public static void main (String[] args) {
         String GT = "Gotham"; //indica que a variavel é const = final (boa prática é ser maiúsculo mesmo)
         String n1 = "nota";
