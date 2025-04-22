@@ -5,5 +5,6 @@ public class TiposVariaveis {
         long cpf = 1234L; // precisa do L no final para não ser reconhecido como INT
         String salario = String.valueOf(salarioMinimo);
         final String AUTOR = "João";
+        System.out.println(AUTOR);
     }
 }
