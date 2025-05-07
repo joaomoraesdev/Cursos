@@ -23,6 +23,7 @@ public class Agencia {
         eventoMap.put(data, new Evento(evento.getNome(), evento.getQtdPessoas()));
     }
 
+    // Não precisa do Comparable/Comprator - o TreeMap já tem isso baseado no Key do Map
     public void listarEventoPorQtdPessoas() {
         Map<LocalDate, Evento> eventoPorQtdPessoasMap = new TreeMap<>(eventoMap);
         System.out.println(eventoPorQtdPessoasMap);
