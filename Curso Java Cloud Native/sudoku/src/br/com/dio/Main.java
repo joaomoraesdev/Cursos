@@ -1,27 +1,35 @@
 package br.com.dio;
 
-import static java.util.Objects.nonNull;
+import br.com.dio.model.Board;
+import br.com.dio.model.Space;
 
 import java.util.ArrayList;
-import java.util.*;
-import java.util.stream.*;
-import br.com.dio.model.*;
-import br.com.dio.util.BoardTemplate;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.stream.Stream;
+
+import static br.com.dio.util.BoardTemplate.BOARD_TEMPLATE;
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+import static java.util.stream.Collectors.toMap;
 
 public class Main {
+
     private final static Scanner scanner = new Scanner(System.in);
+
     private static Board board;
+
     private final static int BOARD_LIMIT = 9;
-    
+
     public static void main(String[] args) {
         final var positions = Stream.of(args)
-                                    .collect(Collectors.toMap(
-                                        k -> k.split(";")[0],
-                                        v -> v.split(";")[1]
-                                    ));
-        
+                .collect(toMap(
+                        k -> k.split(";")[0],
+                        v -> v.split(";")[1]
+                ));
         var option = -1;
-        while(true) {
+        while (true){
             System.out.println("Selecione uma das opções a seguir");
             System.out.println("1 - Iniciar um novo Jogo");
             System.out.println("2 - Colocar um novo número");
@@ -72,7 +80,7 @@ public class Main {
 
 
     private static void inputNumber() {
-        if (Objects.isNull(board)){
+        if (isNull(board)){
             System.out.println("O jogo ainda não foi iniciado iniciado");
             return;
         }
@@ -89,8 +97,8 @@ public class Main {
     }
 
     private static void removeNumber() {
-        if (Objects.isNull(board)){
-            System.out.println("O jogo ainda não foi iniciado");
+        if (isNull(board)){
+            System.out.println("O jogo ainda não foi iniciado iniciado");
             return;
         }
 
@@ -104,7 +112,7 @@ public class Main {
     }
 
     private static void showCurrentGame() {
-        if (Objects.isNull(board)){
+        if (isNull(board)){
             System.out.println("O jogo ainda não foi iniciado iniciado");
             return;
         }
@@ -113,15 +121,15 @@ public class Main {
         var argPos = 0;
         for (int i = 0; i < BOARD_LIMIT; i++) {
             for (var col: board.getSpaces()){
-                args[argPos ++] = " " + ((Objects.isNull(col.get(i).getActual())) ? " " : col.get(i).getActual());
+                args[argPos ++] = " " + ((isNull(col.get(i).getActual())) ? " " : col.get(i).getActual());
             }
         }
         System.out.println("Seu jogo se encontra da seguinte forma");
-        System.out.printf((BoardTemplate.BOARD_TEMPLATE) + "\n", args);
+        System.out.printf((BOARD_TEMPLATE) + "\n", args);
     }
 
     private static void showGameStatus() {
-        if (Objects.isNull(board)){
+        if (isNull(board)){
             System.out.println("O jogo ainda não foi iniciado iniciado");
             return;
         }
@@ -135,7 +143,7 @@ public class Main {
     }
 
     private static void clearGame() {
-        if (Objects.isNull(board)){
+        if (isNull(board)){
             System.out.println("O jogo ainda não foi iniciado iniciado");
             return;
         }
@@ -153,7 +161,7 @@ public class Main {
     }
 
     private static void finishGame() {
-        if (Objects.isNull(board)){
+        if (isNull(board)){
             System.out.println("O jogo ainda não foi iniciado iniciado");
             return;
         }
@@ -178,4 +186,5 @@ public class Main {
         }
         return current;
     }
+
 }
