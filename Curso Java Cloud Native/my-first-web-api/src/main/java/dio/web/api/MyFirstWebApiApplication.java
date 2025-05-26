@@ -1,14 +1,13 @@
-package dio.aula;
+package dio.web.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AulaSpringDataJpaApplication {
+public class MyFirstWebApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AulaSpringDataJpaApplication.class, args);
-
+		SpringApplication.run(MyFirstWebApiApplication.class, args);
 	}
 
 }

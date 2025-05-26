@@ -15,7 +15,7 @@ public class StartApp implements CommandLineRunner {
     private UserRepository repository;
     @Override
     public void run(String... args) throws Exception {
-        //repository.save(inserirUsuario("ronaldo", "userR7", "senhamaster"));
+        //repository.save(inserirUsuario("lucaos", "userDiadema", "soucurintia"));
         //List<Usuario> listaUsuario = repository.filtrarPorNome("joao");
         List<Usuario> listaUsuario = repository.findAll();
         for(Usuario u: listaUsuario) {
